@@ -1,11 +1,6 @@
 package com.jasleen.lld;
 
 import com.jasleen.lld.beginner.Logger;
-import com.jasleen.lld.beginner.ShapeAreaCalculator;
-import com.jasleen.lld.beginner.TextDecorator.BoldTextDecorator;
-import com.jasleen.lld.beginner.TextDecorator.ItalicTextDecorator;
-import com.jasleen.lld.beginner.TextDecorator.SimpleText;
-import com.jasleen.lld.beginner.TextDecorator.TextDecorator;
 
 /**
  * Hello world!
@@ -13,8 +8,15 @@ import com.jasleen.lld.beginner.TextDecorator.TextDecorator;
  */
 public class App 
 {
-    public static void main( String[] args )
-    {
+    public static void main( String[] args ) {
+        callSingleton();
 
+    }
+
+    private static void callSingleton() {
+        Logger logger1 = Logger.getLogger();
+        Logger logger2 = Logger.getLogger();
+
+        System.out.println(logger1 == logger2);
     }
 }
