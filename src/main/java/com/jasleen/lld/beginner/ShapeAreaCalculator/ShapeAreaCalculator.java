@@ -1,4 +1,4 @@
-package com.jasleen.lld.beginner;
+package com.jasleen.lld.beginner.ShapeAreaCalculator;
 
 public class ShapeAreaCalculator {
 

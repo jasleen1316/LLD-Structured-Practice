@@ -1,7 +1,11 @@
 package com.jasleen.lld;
 
-import com.jasleen.lld.beginner.Logger;
-import com.jasleen.lld.beginner.ShapeAreaCalculator;
+import com.jasleen.lld.beginner.EventNotificationSystem.ConcreteEventObservable;
+import com.jasleen.lld.beginner.EventNotificationSystem.ConcreteEventObserver;
+import com.jasleen.lld.beginner.EventNotificationSystem.EventObservable;
+import com.jasleen.lld.beginner.EventNotificationSystem.EventObserver;
+import com.jasleen.lld.beginner.Logger.Logger;
+import com.jasleen.lld.beginner.ShapeAreaCalculator.ShapeAreaCalculator;
 import com.jasleen.lld.beginner.TextDecorator.BoldTextDecorator;
 import com.jasleen.lld.beginner.TextDecorator.ItalicTextDecorator;
 import com.jasleen.lld.beginner.TextDecorator.SimpleText;
@@ -20,6 +24,28 @@ public class App
 
         callTextDecorator();
 
+        callEventNotificationSystem();
+
+    }
+
+    private static void callEventNotificationSystem() {
+        // Create an event subject
+        EventObservable eventSubject = new ConcreteEventObservable();
+
+        // Create observers
+        EventObserver observer1 = new ConcreteEventObserver();
+        EventObserver observer2 = new ConcreteEventObserver();
+
+        // Register observers with the subject
+        eventSubject.subscribe(observer1);
+        eventSubject.subscribe(observer2);
+
+        // Trigger an event
+        eventSubject.notifyObservers("Event 1 occurred!");
+
+        // Unregister one observer and trigger another event
+        eventSubject.unsubscribe(observer1);
+        eventSubject.notifyObservers("Event 2 occurred!");
     }
 
     private static void callTextDecorator() {
