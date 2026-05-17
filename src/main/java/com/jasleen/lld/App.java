@@ -2,6 +2,11 @@ package com.jasleen.lld;
 
 import com.jasleen.lld.beginner.Logger;
 import com.jasleen.lld.beginner.ShapeAreaCalculator;
+import com.jasleen.lld.beginner.TextDecorator.BoldTextDecorator;
+import com.jasleen.lld.beginner.TextDecorator.ItalicTextDecorator;
+import com.jasleen.lld.beginner.TextDecorator.SimpleText;
+import com.jasleen.lld.beginner.TextDecorator.TextDecorator;
+
 /**
  * Hello world!
  *
@@ -13,6 +18,16 @@ public class App
 
         callShapeAreaCalculator();
 
+        callTextDecorator();
+
+    }
+
+    private static void callTextDecorator() {
+        TextDecorator textDecorator1 = new BoldTextDecorator(new SimpleText("hi there"));
+        System.out.println(textDecorator1.getText());
+
+        TextDecorator textDecorator2 = new ItalicTextDecorator(new BoldTextDecorator(new SimpleText("hi there")));
+        System.out.println(textDecorator2.getText());
     }
 
     public static void callShapeAreaCalculator() {
