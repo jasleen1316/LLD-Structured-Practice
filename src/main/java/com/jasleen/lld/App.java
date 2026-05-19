@@ -5,6 +5,7 @@ import com.jasleen.lld.beginner.EventNotificationSystem.ConcreteEventObserver;
 import com.jasleen.lld.beginner.EventNotificationSystem.EventObservable;
 import com.jasleen.lld.beginner.EventNotificationSystem.EventObserver;
 import com.jasleen.lld.beginner.Logger.Logger;
+import com.jasleen.lld.beginner.PizzaOrderBuilder.*;
 import com.jasleen.lld.beginner.ShapeAreaCalculator.ShapeAreaCalculator;
 import com.jasleen.lld.beginner.TextDecorator.BoldTextDecorator;
 import com.jasleen.lld.beginner.TextDecorator.ItalicTextDecorator;
@@ -26,6 +27,17 @@ public class App
 
         callEventNotificationSystem();
 
+        callPizzaBuilder();
+
+    }
+
+    private static void callPizzaBuilder() {
+        Pizza pizza = new PizzaBuilder()
+                .withSize(Size.MEDIUM)
+                .withTopping(new CheeseTopping())
+                .build();
+
+        System.out.println(pizza.toString());
     }
 
     private static void callEventNotificationSystem() {
