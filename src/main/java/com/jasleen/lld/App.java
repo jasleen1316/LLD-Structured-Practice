@@ -11,6 +11,7 @@ import com.jasleen.lld.beginner.TextDecorator.BoldTextDecorator;
 import com.jasleen.lld.beginner.TextDecorator.ItalicTextDecorator;
 import com.jasleen.lld.beginner.TextDecorator.SimpleText;
 import com.jasleen.lld.beginner.TextDecorator.TextDecorator;
+import com.jasleen.lld.easy.CoffeeShopMenu.*;
 
 /**
  * Hello world!
@@ -29,6 +30,17 @@ public class App
 
         callPizzaBuilder();
 
+        callBeverageMenu();
+
+    }
+
+    private static void callBeverageMenu(){
+
+        BeverageBuilder beverageBuilder = new BeverageBuilder();
+        Beverage coffee = beverageBuilder.buildBeverage("coffee", "regular milk", "sugar", "syrup");
+
+        System.out.println(coffee.getName());
+        System.out.println(coffee.getPrice());
     }
 
     private static void callPizzaBuilder() {
