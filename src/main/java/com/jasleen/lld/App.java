@@ -12,6 +12,10 @@ import com.jasleen.lld.beginner.TextDecorator.ItalicTextDecorator;
 import com.jasleen.lld.beginner.TextDecorator.SimpleText;
 import com.jasleen.lld.beginner.TextDecorator.TextDecorator;
 import com.jasleen.lld.easy.CoffeeShopMenu.*;
+import com.jasleen.lld.easy.WeatherStation.CurrentConditionsDisplay;
+import com.jasleen.lld.easy.WeatherStation.Observer;
+import com.jasleen.lld.easy.WeatherStation.Subject;
+import com.jasleen.lld.easy.WeatherStation.WeatherStation;
 
 /**
  * Hello world!
@@ -20,6 +24,9 @@ import com.jasleen.lld.easy.CoffeeShopMenu.*;
 public class App 
 {
     public static void main( String[] args ) {
+
+        // beginner
+
         callSingleton();
 
         callShapeAreaCalculator();
@@ -30,7 +37,23 @@ public class App
 
         callPizzaBuilder();
 
+        // easy
+
         callBeverageMenu();
+
+        callWeatherStation();
+
+    }
+
+    private static void callWeatherStation() {
+
+        // register the subject
+        WeatherStation weatherStation = new WeatherStation();
+
+        // create the observer, it will auto register
+        Observer currentConditions = new CurrentConditionsDisplay(weatherStation);
+
+        weatherStation.updateMeasurements(23, 96, 20);
 
     }
 
