@@ -12,9 +12,9 @@ import com.jasleen.lld.beginner.TextDecorator.ItalicTextDecorator;
 import com.jasleen.lld.beginner.TextDecorator.SimpleText;
 import com.jasleen.lld.beginner.TextDecorator.TextDecorator;
 import com.jasleen.lld.easy.CoffeeShopMenu.*;
+import com.jasleen.lld.easy.PaymentGateway.*;
 import com.jasleen.lld.easy.WeatherStation.CurrentConditionsDisplay;
 import com.jasleen.lld.easy.WeatherStation.Observer;
-import com.jasleen.lld.easy.WeatherStation.Subject;
 import com.jasleen.lld.easy.WeatherStation.WeatherStation;
 
 /**
@@ -42,6 +42,17 @@ public class App
         callBeverageMenu();
 
         callWeatherStation();
+
+        callPaymentGateway();
+
+    }
+
+    private static void callPaymentGateway() {
+
+        PaymentGatewayWrapper wrapper = new PaymentGatewayWrapper(new PaymentGatewayFactory());
+
+        PaymentResponse response = wrapper.charge(new PaymentRequest(new Double(12), "$", ProviderType.valueOf("STRIPE"), "123"));
+        System.out.println(response.getStatus());
 
     }
 
