@@ -16,6 +16,10 @@ import com.jasleen.lld.easy.PaymentGateway.*;
 import com.jasleen.lld.easy.WeatherStation.CurrentConditionsDisplay;
 import com.jasleen.lld.easy.WeatherStation.Observer;
 import com.jasleen.lld.easy.WeatherStation.WeatherStation;
+import com.jasleen.lld.medium.ATMMachine.ATMMachine;
+import com.jasleen.lld.medium.ATMMachine.BankBackendService;
+
+import java.util.HashMap;
 
 /**
  * Hello world!
@@ -45,7 +49,16 @@ public class App
 
         callPaymentGateway();
 
+        // MEDIUM
+
+        callATM();
+
     }
+
+    private static void callATM() {
+        //TODO
+    }
+
 
     private static void callPaymentGateway() {
 
